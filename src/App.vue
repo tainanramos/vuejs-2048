@@ -211,7 +211,6 @@ export default {
       this.addNumber();
     },
     generateNumber() {
-      console.log("teste");
       let divisor = 0;
       let count = 0;
       let countAnt = 0;
@@ -225,7 +224,6 @@ export default {
         }
         for (let i = countAnt; i < count; i++) {
           arrayFibonacci.push(divisor)  
-          console.log(arrayFibonacci)
         }
         countAnt = count
         divisor = divisor / 2;
@@ -236,3 +234,8 @@ export default {
 };
 </script>
 
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+</style>
