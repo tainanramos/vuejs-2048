@@ -5,7 +5,6 @@
     @rightPress="rightPress"
     @downPress="downPress"
     @upPress="upPress"
-    @startGame="startGame"
   />
 </template>
 
@@ -14,6 +13,9 @@ import MatrizGame from "./components/MatrizGame.vue";
 export default {
   name: "App",
   components: { MatrizGame },
+  created(){
+    this.startGame()
+  },
   data() {
     return {
       mat: [
@@ -211,23 +213,24 @@ export default {
       this.addNumber();
     },
     generateNumber() {
-      let divisor = 0;
-      let count = 0;
-      let countAnt = 0;
-      let arrayFibonacci = [];
-      divisor = this.maxNumber;
-      do {
-        if (divisor == this.maxNumber) {
-          count = 1;
-        } else {
-          count += countAnt;
-        }
-        for (let i = countAnt; i < count; i++) {
-          arrayFibonacci.push(divisor)  
-        }
-        countAnt = count
-        divisor = divisor / 2;
-      } while (divisor != 1);
+      // let divisor = 0;
+      // let count = 0;
+      // let countAnt = 0;
+      const arrayFibonacci = [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,4,4,4,4,4,4,4,4];
+      // divisor = this.maxNumber;
+      // do {
+      //   if (divisor == this.maxNumber) {
+      //     count = 1;
+      //     arrayFibonacci.push(2)  
+      //   } else {
+      //     count += countAnt;
+      //     for (let i = countAnt; i < count; i++) {
+      //     arrayFibonacci.push(divisor)  
+      //   }
+      //   }
+      //   countAnt = count
+      //   divisor = divisor / 2;
+      // } while (divisor != 1);
       return arrayFibonacci[Math.floor(Math.random() * arrayFibonacci.length)];
     },
   },
