@@ -1,13 +1,6 @@
 <template>
-  <input
-    type="text"
-    @keydown.left="$emit('leftPress')"
-    @keydown.right="$emit('rightPress')"
-    @keydown.down="$emit('downPress')"
-    @keydown.up="$emit('upPress')"
-    autofocus
-  />
-  <div class="matriz" id="grid-game">
+  
+  <div class="matriz">
     <div class="linha" v-for="(linha, i) in mat" :key="i">
       <div
         class="coluna"
@@ -27,9 +20,15 @@ export default {
     mat: { type: Array, required: true },
   },
   emits: ["leftPress", "rightPress", "downPress", "upPress"],
+  mounted() {
+    document.addEventListener('keypress', (event) => this.moveGrid(event))
+  },
   methods: {
-    teste() {
-      console.log("teste teste");
+    moveGrid(event) {
+      if(event.key == 'a') this.$emit('leftPress')
+      if(event.key == 'd') this.$emit('rightPress')
+      if(event.key == 's') this.$emit('downPress')
+      if(event.key == 'w') this.$emit('upPress')
     },
     classItem(coluna) {
       let classItem;
