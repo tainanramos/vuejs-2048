@@ -1,5 +1,4 @@
 <template>
-  
   <div class="matriz">
     <div class="linha" v-for="(linha, i) in mat" :key="i">
       <div
@@ -21,14 +20,14 @@ export default {
   },
   emits: ["leftPress", "rightPress", "downPress", "upPress"],
   mounted() {
-    document.addEventListener('keypress', (event) => this.moveGrid(event))
+    document.addEventListener("keypress", (event) => this.moveGrid(event));
   },
   methods: {
     moveGrid(event) {
-      if(event.key == 'a') this.$emit('leftPress')
-      if(event.key == 'd') this.$emit('rightPress')
-      if(event.key == 's') this.$emit('downPress')
-      if(event.key == 'w') this.$emit('upPress')
+      if (event.key == "a") this.$emit("leftPress");
+      if (event.key == "d") this.$emit("rightPress");
+      if (event.key == "s") this.$emit("downPress");
+      if (event.key == "w") this.$emit("upPress");
     },
     classItem(coluna) {
       let classItem;
